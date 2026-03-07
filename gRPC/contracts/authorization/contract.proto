@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package authorizationV1;
+
+option go_package = "./authv1";
+
+message CreateAccountRequest {
+  string email = 1;
+  string password = 2;
+  string platform = 3;
+  string payload = 4;
+}
+
+message LoginAccountRequest {
+  string email = 1;
+  string password = 2;
+}
+
+message RefreshRequest {
+  string refresh = 1;
+}
+
+message AccessRequest {
+  string access = 1;
+}
+
+message Tokens {
+  bool id = 1;
+  string access = 2;
+  string refresh = 3;
+}
+
+message Account {
+  int64 id = 1;
+  string email = 2;
+  string first_name = 3;
+  string last_name = 4;
+}
+
+message Rspn {
+  bool ok = 1;
+}
+
+service Authorization {
+  rpc CreateAccount(CreateAccountRequest) returns (Tokens);
+  rpc LoginAccount(LoginAccountRequest) returns (Tokens);
+  rpc RefreshSession(RefreshRequest) returns (Tokens);
+  rpc LogoutSession(RefreshRequest) returns (Rspn);
+  rpc UserInfo(AccessRequest) returns (Account);
+}
