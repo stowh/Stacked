@@ -275,7 +275,7 @@ func (x *AccessRequest) GetAccess() string {
 
 type Tokens struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            bool                   `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	Access        string                 `protobuf:"bytes,2,opt,name=access,proto3" json:"access,omitempty"`
 	Refresh       string                 `protobuf:"bytes,3,opt,name=refresh,proto3" json:"refresh,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -312,11 +312,11 @@ func (*Tokens) Descriptor() ([]byte, []int) {
 	return file_authorization_contract_proto_rawDescGZIP(), []int{5}
 }
 
-func (x *Tokens) GetId() bool {
+func (x *Tokens) GetId() int64 {
 	if x != nil {
 		return x.Id
 	}
-	return false
+	return 0
 }
 
 func (x *Tokens) GetAccess() string {
@@ -449,7 +449,7 @@ const file_authorization_contract_proto_rawDesc = "" +
 	"\rAccessRequest\x12\x16\n" +
 	"\x06access\x18\x01 \x01(\tR\x06access\"J\n" +
 	"\x06Tokens\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\bR\x02id\x12\x16\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x16\n" +
 	"\x06access\x18\x02 \x01(\tR\x06access\x12\x18\n" +
 	"\arefresh\x18\x03 \x01(\tR\arefresh\"/\n" +
 	"\aAccount\x12\x0e\n" +
