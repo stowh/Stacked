@@ -89,6 +89,50 @@ func (x *CreateAccountRequest) GetPayload() string {
 	return ""
 }
 
+type RemoveAccountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveAccountRequest) Reset() {
+	*x = RemoveAccountRequest{}
+	mi := &file_authorization_contract_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveAccountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveAccountRequest) ProtoMessage() {}
+
+func (x *RemoveAccountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_authorization_contract_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveAccountRequest.ProtoReflect.Descriptor instead.
+func (*RemoveAccountRequest) Descriptor() ([]byte, []int) {
+	return file_authorization_contract_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *RemoveAccountRequest) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
 type LoginAccountRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Email         string                 `protobuf:"bytes,1,opt,name=email,proto3" json:"email,omitempty"`
@@ -99,7 +143,7 @@ type LoginAccountRequest struct {
 
 func (x *LoginAccountRequest) Reset() {
 	*x = LoginAccountRequest{}
-	mi := &file_authorization_contract_proto_msgTypes[1]
+	mi := &file_authorization_contract_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -111,7 +155,7 @@ func (x *LoginAccountRequest) String() string {
 func (*LoginAccountRequest) ProtoMessage() {}
 
 func (x *LoginAccountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_authorization_contract_proto_msgTypes[1]
+	mi := &file_authorization_contract_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -124,7 +168,7 @@ func (x *LoginAccountRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LoginAccountRequest.ProtoReflect.Descriptor instead.
 func (*LoginAccountRequest) Descriptor() ([]byte, []int) {
-	return file_authorization_contract_proto_rawDescGZIP(), []int{1}
+	return file_authorization_contract_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *LoginAccountRequest) GetEmail() string {
@@ -150,7 +194,7 @@ type RefreshRequest struct {
 
 func (x *RefreshRequest) Reset() {
 	*x = RefreshRequest{}
-	mi := &file_authorization_contract_proto_msgTypes[2]
+	mi := &file_authorization_contract_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -162,7 +206,7 @@ func (x *RefreshRequest) String() string {
 func (*RefreshRequest) ProtoMessage() {}
 
 func (x *RefreshRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_authorization_contract_proto_msgTypes[2]
+	mi := &file_authorization_contract_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -175,7 +219,7 @@ func (x *RefreshRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RefreshRequest.ProtoReflect.Descriptor instead.
 func (*RefreshRequest) Descriptor() ([]byte, []int) {
-	return file_authorization_contract_proto_rawDescGZIP(), []int{2}
+	return file_authorization_contract_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *RefreshRequest) GetRefresh() string {
@@ -194,7 +238,7 @@ type AccessRequest struct {
 
 func (x *AccessRequest) Reset() {
 	*x = AccessRequest{}
-	mi := &file_authorization_contract_proto_msgTypes[3]
+	mi := &file_authorization_contract_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -206,7 +250,7 @@ func (x *AccessRequest) String() string {
 func (*AccessRequest) ProtoMessage() {}
 
 func (x *AccessRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_authorization_contract_proto_msgTypes[3]
+	mi := &file_authorization_contract_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -219,7 +263,7 @@ func (x *AccessRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AccessRequest.ProtoReflect.Descriptor instead.
 func (*AccessRequest) Descriptor() ([]byte, []int) {
-	return file_authorization_contract_proto_rawDescGZIP(), []int{3}
+	return file_authorization_contract_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *AccessRequest) GetAccess() string {
@@ -240,7 +284,7 @@ type Tokens struct {
 
 func (x *Tokens) Reset() {
 	*x = Tokens{}
-	mi := &file_authorization_contract_proto_msgTypes[4]
+	mi := &file_authorization_contract_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -252,7 +296,7 @@ func (x *Tokens) String() string {
 func (*Tokens) ProtoMessage() {}
 
 func (x *Tokens) ProtoReflect() protoreflect.Message {
-	mi := &file_authorization_contract_proto_msgTypes[4]
+	mi := &file_authorization_contract_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -265,7 +309,7 @@ func (x *Tokens) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Tokens.ProtoReflect.Descriptor instead.
 func (*Tokens) Descriptor() ([]byte, []int) {
-	return file_authorization_contract_proto_rawDescGZIP(), []int{4}
+	return file_authorization_contract_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *Tokens) GetId() bool {
@@ -293,15 +337,13 @@ type Account struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	Email         string                 `protobuf:"bytes,2,opt,name=email,proto3" json:"email,omitempty"`
-	FirstName     string                 `protobuf:"bytes,3,opt,name=first_name,json=firstName,proto3" json:"first_name,omitempty"`
-	LastName      string                 `protobuf:"bytes,4,opt,name=last_name,json=lastName,proto3" json:"last_name,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Account) Reset() {
 	*x = Account{}
-	mi := &file_authorization_contract_proto_msgTypes[5]
+	mi := &file_authorization_contract_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -313,7 +355,7 @@ func (x *Account) String() string {
 func (*Account) ProtoMessage() {}
 
 func (x *Account) ProtoReflect() protoreflect.Message {
-	mi := &file_authorization_contract_proto_msgTypes[5]
+	mi := &file_authorization_contract_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -326,7 +368,7 @@ func (x *Account) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Account.ProtoReflect.Descriptor instead.
 func (*Account) Descriptor() ([]byte, []int) {
-	return file_authorization_contract_proto_rawDescGZIP(), []int{5}
+	return file_authorization_contract_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *Account) GetId() int64 {
@@ -343,20 +385,6 @@ func (x *Account) GetEmail() string {
 	return ""
 }
 
-func (x *Account) GetFirstName() string {
-	if x != nil {
-		return x.FirstName
-	}
-	return ""
-}
-
-func (x *Account) GetLastName() string {
-	if x != nil {
-		return x.LastName
-	}
-	return ""
-}
-
 type Rspn struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Ok            bool                   `protobuf:"varint,1,opt,name=ok,proto3" json:"ok,omitempty"`
@@ -366,7 +394,7 @@ type Rspn struct {
 
 func (x *Rspn) Reset() {
 	*x = Rspn{}
-	mi := &file_authorization_contract_proto_msgTypes[6]
+	mi := &file_authorization_contract_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -378,7 +406,7 @@ func (x *Rspn) String() string {
 func (*Rspn) ProtoMessage() {}
 
 func (x *Rspn) ProtoReflect() protoreflect.Message {
-	mi := &file_authorization_contract_proto_msgTypes[6]
+	mi := &file_authorization_contract_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -391,7 +419,7 @@ func (x *Rspn) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Rspn.ProtoReflect.Descriptor instead.
 func (*Rspn) Descriptor() ([]byte, []int) {
-	return file_authorization_contract_proto_rawDescGZIP(), []int{6}
+	return file_authorization_contract_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *Rspn) GetOk() bool {
@@ -410,7 +438,9 @@ const file_authorization_contract_proto_rawDesc = "" +
 	"\x05email\x18\x01 \x01(\tR\x05email\x12\x1a\n" +
 	"\bpassword\x18\x02 \x01(\tR\bpassword\x12\x1a\n" +
 	"\bplatform\x18\x03 \x01(\tR\bplatform\x12\x18\n" +
-	"\apayload\x18\x04 \x01(\tR\apayload\"G\n" +
+	"\apayload\x18\x04 \x01(\tR\apayload\"&\n" +
+	"\x14RemoveAccountRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\"G\n" +
 	"\x13LoginAccountRequest\x12\x14\n" +
 	"\x05email\x18\x01 \x01(\tR\x05email\x12\x1a\n" +
 	"\bpassword\x18\x02 \x01(\tR\bpassword\"*\n" +
@@ -421,17 +451,15 @@ const file_authorization_contract_proto_rawDesc = "" +
 	"\x06Tokens\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\bR\x02id\x12\x16\n" +
 	"\x06access\x18\x02 \x01(\tR\x06access\x12\x18\n" +
-	"\arefresh\x18\x03 \x01(\tR\arefresh\"k\n" +
+	"\arefresh\x18\x03 \x01(\tR\arefresh\"/\n" +
 	"\aAccount\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x14\n" +
-	"\x05email\x18\x02 \x01(\tR\x05email\x12\x1d\n" +
-	"\n" +
-	"first_name\x18\x03 \x01(\tR\tfirstName\x12\x1b\n" +
-	"\tlast_name\x18\x04 \x01(\tR\blastName\"\x16\n" +
+	"\x05email\x18\x02 \x01(\tR\x05email\"\x16\n" +
 	"\x04Rspn\x12\x0e\n" +
-	"\x02ok\x18\x01 \x01(\bR\x02ok2\x8a\x03\n" +
+	"\x02ok\x18\x01 \x01(\bR\x02ok2\xd9\x03\n" +
 	"\rAuthorization\x12O\n" +
 	"\rCreateAccount\x12%.authorizationV1.CreateAccountRequest\x1a\x17.authorizationV1.Tokens\x12M\n" +
+	"\rRemoveAccount\x12%.authorizationV1.RemoveAccountRequest\x1a\x15.authorizationV1.Rspn\x12M\n" +
 	"\fLoginAccount\x12$.authorizationV1.LoginAccountRequest\x1a\x17.authorizationV1.Tokens\x12J\n" +
 	"\x0eRefreshSession\x12\x1f.authorizationV1.RefreshRequest\x1a\x17.authorizationV1.Tokens\x12G\n" +
 	"\rLogoutSession\x12\x1f.authorizationV1.RefreshRequest\x1a\x15.authorizationV1.Rspn\x12D\n" +
@@ -450,29 +478,32 @@ func file_authorization_contract_proto_rawDescGZIP() []byte {
 	return file_authorization_contract_proto_rawDescData
 }
 
-var file_authorization_contract_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
+var file_authorization_contract_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_authorization_contract_proto_goTypes = []any{
 	(*CreateAccountRequest)(nil), // 0: authorizationV1.CreateAccountRequest
-	(*LoginAccountRequest)(nil),  // 1: authorizationV1.LoginAccountRequest
-	(*RefreshRequest)(nil),       // 2: authorizationV1.RefreshRequest
-	(*AccessRequest)(nil),        // 3: authorizationV1.AccessRequest
-	(*Tokens)(nil),               // 4: authorizationV1.Tokens
-	(*Account)(nil),              // 5: authorizationV1.Account
-	(*Rspn)(nil),                 // 6: authorizationV1.Rspn
+	(*RemoveAccountRequest)(nil), // 1: authorizationV1.RemoveAccountRequest
+	(*LoginAccountRequest)(nil),  // 2: authorizationV1.LoginAccountRequest
+	(*RefreshRequest)(nil),       // 3: authorizationV1.RefreshRequest
+	(*AccessRequest)(nil),        // 4: authorizationV1.AccessRequest
+	(*Tokens)(nil),               // 5: authorizationV1.Tokens
+	(*Account)(nil),              // 6: authorizationV1.Account
+	(*Rspn)(nil),                 // 7: authorizationV1.Rspn
 }
 var file_authorization_contract_proto_depIdxs = []int32{
 	0, // 0: authorizationV1.Authorization.CreateAccount:input_type -> authorizationV1.CreateAccountRequest
-	1, // 1: authorizationV1.Authorization.LoginAccount:input_type -> authorizationV1.LoginAccountRequest
-	2, // 2: authorizationV1.Authorization.RefreshSession:input_type -> authorizationV1.RefreshRequest
-	2, // 3: authorizationV1.Authorization.LogoutSession:input_type -> authorizationV1.RefreshRequest
-	3, // 4: authorizationV1.Authorization.UserInfo:input_type -> authorizationV1.AccessRequest
-	4, // 5: authorizationV1.Authorization.CreateAccount:output_type -> authorizationV1.Tokens
-	4, // 6: authorizationV1.Authorization.LoginAccount:output_type -> authorizationV1.Tokens
-	4, // 7: authorizationV1.Authorization.RefreshSession:output_type -> authorizationV1.Tokens
-	6, // 8: authorizationV1.Authorization.LogoutSession:output_type -> authorizationV1.Rspn
-	5, // 9: authorizationV1.Authorization.UserInfo:output_type -> authorizationV1.Account
-	5, // [5:10] is the sub-list for method output_type
-	0, // [0:5] is the sub-list for method input_type
+	1, // 1: authorizationV1.Authorization.RemoveAccount:input_type -> authorizationV1.RemoveAccountRequest
+	2, // 2: authorizationV1.Authorization.LoginAccount:input_type -> authorizationV1.LoginAccountRequest
+	3, // 3: authorizationV1.Authorization.RefreshSession:input_type -> authorizationV1.RefreshRequest
+	3, // 4: authorizationV1.Authorization.LogoutSession:input_type -> authorizationV1.RefreshRequest
+	4, // 5: authorizationV1.Authorization.UserInfo:input_type -> authorizationV1.AccessRequest
+	5, // 6: authorizationV1.Authorization.CreateAccount:output_type -> authorizationV1.Tokens
+	7, // 7: authorizationV1.Authorization.RemoveAccount:output_type -> authorizationV1.Rspn
+	5, // 8: authorizationV1.Authorization.LoginAccount:output_type -> authorizationV1.Tokens
+	5, // 9: authorizationV1.Authorization.RefreshSession:output_type -> authorizationV1.Tokens
+	7, // 10: authorizationV1.Authorization.LogoutSession:output_type -> authorizationV1.Rspn
+	6, // 11: authorizationV1.Authorization.UserInfo:output_type -> authorizationV1.Account
+	6, // [6:12] is the sub-list for method output_type
+	0, // [0:6] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -489,7 +520,7 @@ func file_authorization_contract_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_authorization_contract_proto_rawDesc), len(file_authorization_contract_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   7,
+			NumMessages:   8,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

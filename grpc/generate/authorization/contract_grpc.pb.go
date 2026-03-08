@@ -20,6 +20,7 @@ const _ = grpc.SupportPackageIsVersion9
 
 const (
 	Authorization_CreateAccount_FullMethodName  = "/authorizationV1.Authorization/CreateAccount"
+	Authorization_RemoveAccount_FullMethodName  = "/authorizationV1.Authorization/RemoveAccount"
 	Authorization_LoginAccount_FullMethodName   = "/authorizationV1.Authorization/LoginAccount"
 	Authorization_RefreshSession_FullMethodName = "/authorizationV1.Authorization/RefreshSession"
 	Authorization_LogoutSession_FullMethodName  = "/authorizationV1.Authorization/LogoutSession"
@@ -31,6 +32,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type AuthorizationClient interface {
 	CreateAccount(ctx context.Context, in *CreateAccountRequest, opts ...grpc.CallOption) (*Tokens, error)
+	RemoveAccount(ctx context.Context, in *RemoveAccountRequest, opts ...grpc.CallOption) (*Rspn, error)
 	LoginAccount(ctx context.Context, in *LoginAccountRequest, opts ...grpc.CallOption) (*Tokens, error)
 	RefreshSession(ctx context.Context, in *RefreshRequest, opts ...grpc.CallOption) (*Tokens, error)
 	LogoutSession(ctx context.Context, in *RefreshRequest, opts ...grpc.CallOption) (*Rspn, error)
@@ -49,6 +51,16 @@ func (c *authorizationClient) CreateAccount(ctx context.Context, in *CreateAccou
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Tokens)
 	err := c.cc.Invoke(ctx, Authorization_CreateAccount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *authorizationClient) RemoveAccount(ctx context.Context, in *RemoveAccountRequest, opts ...grpc.CallOption) (*Rspn, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Rspn)
+	err := c.cc.Invoke(ctx, Authorization_RemoveAccount_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -100,6 +112,7 @@ func (c *authorizationClient) UserInfo(ctx context.Context, in *AccessRequest, o
 // for forward compatibility.
 type AuthorizationServer interface {
 	CreateAccount(context.Context, *CreateAccountRequest) (*Tokens, error)
+	RemoveAccount(context.Context, *RemoveAccountRequest) (*Rspn, error)
 	LoginAccount(context.Context, *LoginAccountRequest) (*Tokens, error)
 	RefreshSession(context.Context, *RefreshRequest) (*Tokens, error)
 	LogoutSession(context.Context, *RefreshRequest) (*Rspn, error)
@@ -116,6 +129,9 @@ type UnimplementedAuthorizationServer struct{}
 
 func (UnimplementedAuthorizationServer) CreateAccount(context.Context, *CreateAccountRequest) (*Tokens, error) {
 	return nil, status.Error(codes.Unimplemented, "method CreateAccount not implemented")
+}
+func (UnimplementedAuthorizationServer) RemoveAccount(context.Context, *RemoveAccountRequest) (*Rspn, error) {
+	return nil, status.Error(codes.Unimplemented, "method RemoveAccount not implemented")
 }
 func (UnimplementedAuthorizationServer) LoginAccount(context.Context, *LoginAccountRequest) (*Tokens, error) {
 	return nil, status.Error(codes.Unimplemented, "method LoginAccount not implemented")
@@ -164,6 +180,24 @@ func _Authorization_CreateAccount_Handler(srv interface{}, ctx context.Context, 
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(AuthorizationServer).CreateAccount(ctx, req.(*CreateAccountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Authorization_RemoveAccount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveAccountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AuthorizationServer).RemoveAccount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Authorization_RemoveAccount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AuthorizationServer).RemoveAccount(ctx, req.(*RemoveAccountRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -250,6 +284,10 @@ var Authorization_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CreateAccount",
 			Handler:    _Authorization_CreateAccount_Handler,
+		},
+		{
+			MethodName: "RemoveAccount",
+			Handler:    _Authorization_RemoveAccount_Handler,
 		},
 		{
 			MethodName: "LoginAccount",
