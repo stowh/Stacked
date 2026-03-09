@@ -4,14 +4,15 @@
 // 	protoc        (unknown)
 // source: user/contract.proto
 
-package userv1
+package user
 
 import (
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
+
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -23,6 +24,7 @@ const (
 
 type SearchByIdRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	AuthId        int64                  `protobuf:"varint,1,opt,name=authId,proto3" json:"authId,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -57,8 +59,16 @@ func (*SearchByIdRequest) Descriptor() ([]byte, []int) {
 	return file_user_contract_proto_rawDescGZIP(), []int{0}
 }
 
+func (x *SearchByIdRequest) GetAuthId() int64 {
+	if x != nil {
+		return x.AuthId
+	}
+	return 0
+}
+
 type SearchByUsernameRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Username      string                 `protobuf:"bytes,2,opt,name=username,proto3" json:"username,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -91,6 +101,13 @@ func (x *SearchByUsernameRequest) ProtoReflect() protoreflect.Message {
 // Deprecated: Use SearchByUsernameRequest.ProtoReflect.Descriptor instead.
 func (*SearchByUsernameRequest) Descriptor() ([]byte, []int) {
 	return file_user_contract_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *SearchByUsernameRequest) GetUsername() string {
+	if x != nil {
+		return x.Username
+	}
+	return ""
 }
 
 type Rspn struct {
@@ -217,9 +234,11 @@ var File_user_contract_proto protoreflect.FileDescriptor
 
 const file_user_contract_proto_rawDesc = "" +
 	"\n" +
-	"\x13user/contract.proto\x12\x06userv1\"\x13\n" +
-	"\x11SearchByIdRequest\"\x19\n" +
-	"\x17SearchByUsernameRequest\"\x16\n" +
+	"\x13user/contract.proto\x12\x06userv1\"+\n" +
+	"\x11SearchByIdRequest\x12\x16\n" +
+	"\x06authId\x18\x01 \x01(\x03R\x06authId\"5\n" +
+	"\x17SearchByUsernameRequest\x12\x1a\n" +
+	"\busername\x18\x02 \x01(\tR\busername\"\x16\n" +
 	"\x04Rspn\x12\x0e\n" +
 	"\x02ok\x18\x01 \x01(\bR\x02ok\"\x8d\x01\n" +
 	"\aAccount\x12\x16\n" +
