@@ -5,10 +5,10 @@ package userv1;
 option go_package = "./userv1";
 
 message SearchByIdRequest {
-  
+  int64 authId = 1;
 }
 message SearchByUsernameRequest {
-  
+  string username = 2;
 }
 
 message Rspn {
